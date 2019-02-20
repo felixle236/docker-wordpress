@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+    wordpress:
+        container_name: wordpress-${PROJECT_ID}
+        image: wordpress:5.0.3
+        volumes:
+            - ./src/.htaccess:/var/www/html/.htaccess
+            - ./src/wp-content:/var/www/html/wp-content
+        environment:
+            WORDPRESS_DB_HOST: ${DB_HOST}
+            WORDPRESS_DB_USER: ${DB_USER}
+            WORDPRESS_DB_PASSWORD: ${DB_PASS}
+            WORDPRESS_DB_NAME: ${DB_NAME}
+            WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX}
+            WORDPRESS_DEBUG: ${DEBUG_MODE}
+        ports:
+            - ${PORT}:80
+        networks:
+            - webnet
+        restart: always
+
+networks:
+    webnet:
+        name: webnet
+        driver: bridge
