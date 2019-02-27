@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     wordpress:
-        container_name: wordpress-${PROJECT_ID}
+        container_name: ${PROJECT_ID}
         image: wordpress:5.0.3
         volumes:
             - ./src/.htaccess:/var/www/html/.htaccess
