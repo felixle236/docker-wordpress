@@ -2,7 +2,7 @@ version: '3.7'
 services:
     wordpress:
         container_name: ${PROJECT_ID}
-        image: wordpress:5.0.3
+        image: wordpress:5.1.1
         volumes:
             - ./src/.htaccess:/var/www/html/.htaccess
             - ./src/wp-content:/var/www/html/wp-content
@@ -13,6 +13,9 @@ services:
             WORDPRESS_DB_NAME: ${DB_NAME}
             WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX}
             WORDPRESS_DEBUG: ${DEBUG_MODE}
+            WORDPRESS_CONFIG_EXTRA: |
+                define('WP_MEMORY_LIMIT', '256M');
+                define('WP_MAX_MEMORY_LIMIT', '512M');
         ports:
             - ${PORT}:80
         networks:
