@@ -2,7 +2,7 @@ version: '3.7'
 services:
     wordpress:
         container_name: ${PROJECT_ID}
-        image: wordpress:5.1.1
+        image: wordpress:5.2.1
         volumes:
             - ./src/.htaccess:/var/www/html/.htaccess
             - ./src/wp-content:/var/www/html/wp-content

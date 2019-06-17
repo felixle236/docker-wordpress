@@ -1,3 +1,6 @@
 .env
 .DS_Store
 src/wp-content/uploads
+src/wp-content/themes/twentynineteen
+src/wp-content/themes/twentyseventeen
+src/wp-content/themes/twentysixteen
