@@ -2,7 +2,7 @@ version: '3.7'
 services:
     wordpress:
         container_name: ${PROJECT_ID}
-        image: wordpress:5.2.2
+        image: wordpress:5.3.0
         volumes:
             - ./src/.htaccess:/var/www/html/.htaccess
             - ./src/wp-content:/var/www/html/wp-content
@@ -16,7 +16,7 @@ services:
             WORDPRESS_CONFIG_EXTRA: |
                 define('WP_MEMORY_LIMIT', '256M');
                 define('WP_MAX_MEMORY_LIMIT', '512M');
-        expose:
+        ports:
             - ${PORT}:80
         networks:
             - webnet
