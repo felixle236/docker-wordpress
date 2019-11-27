@@ -16,7 +16,7 @@ services:
             WORDPRESS_CONFIG_EXTRA: |
                 define('WP_MEMORY_LIMIT', '256M');
                 define('WP_MAX_MEMORY_LIMIT', '512M');
-        ports:
+        expose:
             - ${PORT}:80
         networks:
             - webnet
